@@ -1,0 +1,148 @@
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f1f4f6;
+  color: #333;
+}
+
+/* Cabecera */
+header {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  position: relative;
+}
+header img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Menú lateral */
+#menu-toggle {
+  display: none;
+}
+#menu-button {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px;
+  display: block;
+  background: #4CAF50;
+  color: white;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 10;
+}
+#sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  transition: left 0.3s;
+  z-index: 9;
+}
+#sidebar h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+#sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+}
+#sidebar a:hover {
+  text-decoration: underline;
+}
+#menu-toggle:checked + #menu-button + #sidebar {
+  left: 0;
+}
+
+/* Contenido principal */
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Formularios */
+form input,
+form select,
+form button,
+form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+form button {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  transition: 0.3s;
+}
+form button:hover {
+  background-color: #3e9c44;
+}
+
+/* Listas */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+#listaParcelas li,
+#listaCampos li {
+  background-color: #fafafa;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-left: 4px solid #4CAF50;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+}
+
+/* Botones en campos */
+#listaCampos button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#listaCampos button:nth-child(1) {
+  background-color: #2196F3;
+}
+#listaCampos button:nth-child(1):hover {
+  background-color: #1976D2;
+}
+#listaCampos button:nth-child(2) {
+  background-color: #f44336;
+}
+#listaCampos button:nth-child(2):hover {
+  background-color: #d7382b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main {
+    margin: 10px;
+    border-radius: 0;
+  }
+}
