@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creapp - Gestión de Campos</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+
+  <!-- Menú lateral -->
+  <input type="checkbox" id="menu-toggle" />
+  <label id="menu-button" for="menu-toggle">&#9776;</label>
+  <nav id="sidebar">
+    <h2>Menú</h2>
+    <a href="index.html">Inicio</a>
+    <a href="registro.html">Registro</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <!-- Cabecera -->
+  <header>
+    <img src="icon-512.png" alt="Creapp logo" />
+    <h1>Creapp</h1>
+    <p>Gestión de campos y parcelas</p>
+  </header>
+
+  <main>
+    <section id="crearCampo">
+      <h2>Nuevo Campo</h2>
+      <form id="campoForm">
+        <input type="text" id="nombreCampo" placeholder="Nombre del campo" required />
+
+        <label for="provincia">Provincia:</label>
+        <select id="provincia" required>
+          <option value="">Selecciona provincia</option>
+          <option value="28">Madrid</option>
+          <option value="29">Málaga</option>
+          <!-- Añade todas las provincias que tenías aquí -->
+        </select>
+
+        <label for="municipio">Municipio:</label>
+        <input type="number" id="municipio" placeholder="Código municipio" required />
+
+        <h3>Parcelas del Campo</h3>
+        <input type="text" id="poligono" placeholder="Polígono" />
+        <input type="text" id="parcela" placeholder="Parcela" />
+        <button type="button" id="addParcela">Añadir Parcela</button>
+        <ul id="listaParcelas"></ul>
+
+        <button type="submit">Guardar Campo</button>
+      </form>
+    </section>
+
+    <section id="misCampos">
+      <h2>Mis Campos</h2>
+      <ul id="listaCampos"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
