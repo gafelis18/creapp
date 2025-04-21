@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creapp - Gestión de Campos</title>
+  <link rel="manifest" href="manifest.json" />
+  <script src="app.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f4f6;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header img {
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    #menu-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 30px;
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      z-index: 1002;
+      cursor: pointer;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: white;
+      padding: 20px;
+      z-index: 1001;
+      transition: left 0.3s ease;
+    }
+
+    #sidebar a {
+      display: block;
+      color: white;
+      margin: 10px 0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+    }
+
+    #menu-toggle:checked ~ #overlay {
+      display: block;
+    }
+
+    #menu-toggle:checked + #menu-button + #sidebar {
+      left: 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    form input,
+    form select,
+    form textarea,
+    form button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      background: #eee;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú funcional -->
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" id="menu-button">&#9776;</label>
+  <nav id="sidebar">
+    <h2>Menú</h2>
+    <a href="index.html">Inicio</a>
+    <a href="registro.html">Registro</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+  <label for="menu-toggle" id="overlay"></label>
+
+  <!-- Cabecera -->
+  <header>
+    <img src="icon-512.png" alt="Creapp logo" />
+    <h1>Creapp</h1>
+    <p>Gestión de campos y parcelas</p>
+  </header>
+
+  <main>
+    <section id="crearCampo">
+      <h2>Nuevo Campo</h2>
+      <form id="campoForm">
+        <input type="text" id="nombreCampo" placeholder="Nombre del campo" required />
+
+        <label for="provincia">Provincia:</label>
+        <select id="provincia" required>
+          <option value="">Selecciona provincia</option>
+          <!-- Aquí insertamos las 52 provincias -->
+          <option value="01">Álava</option>
+          <option value="02">Albacete</option>
+          <option value="03">Alicante</option>
+          <option value="04">Almería</option>
+          <option value="05">Ávila</option>
+          <option value="06">Badajoz</option>
+          <option value="07">Illes Balears</option>
+          <option value="08">Barcelona</option>
+          <option value="09">Burgos</option>
+          <option value="10">Cáceres</option>
+          <option value="11">Cádiz</option>
+          <option value="12">Castellón</option>
+          <option value="13">Ciudad Real</option>
+          <option value="14">Córdoba</option>
+          <option value="15">A Coruña</option>
+          <option value="16">Cuenca</option>
+          <option value="17">Girona</option>
+          <option value="18">Granada</option>
+          <option value="19">Guadalajara</option>
+          <option value="20">Guipúzcoa</option>
+          <option value="21">Huelva</option>
+          <option value="22">Huesca</option>
+          <option value="23">Jaén</option>
+          <option value="24">León</option>
+          <option value="25">Lleida</option>
+          <option value="26">La Rioja</option>
+          <option value="27">Lugo</option>
+          <option value="28">Madrid</option>
+          <option value="29">Málaga</option>
+          <option value="30">Murcia</option>
+          <option value="31">Navarra</option>
+          <option value="32">Ourense</option>
+          <option value="33">Asturias</option>
+          <option value="34">Palencia</option>
+          <option value="35">Las Palmas</option>
+          <option value="36">Pontevedra</option>
+          <option value="37">Salamanca</option>
+          <option value="38">Santa Cruz de Tenerife</option>
+          <option value="39">Cantabria</option>
+          <option value="40">Segovia</option>
+          <option value="41">Sevilla</option>
+          <option value="42">Soria</option>
+          <option value="43">Tarragona</option>
+          <option value="44">Teruel</option>
+          <option value="45">Toledo</option>
+          <option value="46">Valencia</option>
+          <option value="47">Valladolid</option>
+          <option value="48">Vizcaya</option>
+          <option value="49">Zamora</option>
+          <option value="50">Zaragoza</option>
+          <option value="51">Ceuta</option>
+          <option value="52">Melilla</option>
+        </select>
+
+        <label for="municipio">Municipio:</label>
+        <input type="number" id="municipio" placeholder="Código municipio" required />
+
+        <h3>Parcelas del Campo</h3>
+        <input type="text" id="poligono" placeholder="Polígono" />
+        <input type="text" id="parcela" placeholder="Parcela" />
+        <button type="button" id="addParcela">Añadir Parcela</button>
+        <ul id="listaParcelas"></ul>
+
+        <button type="submit">Guardar Campo</button>
+      </form>
+    </section>
+
+    <section id="misCampos">
+      <h2>Mis Campos</h2>
+      <ul id="listaCampos"></ul>
+    </section>
+  </main>
+
+</body>
+</html>
