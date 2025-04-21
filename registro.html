@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creapp - Registro</title>
+  <script src="registro.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f4f6;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header img {
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    #menu-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 30px;
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      z-index: 1002;
+      cursor: pointer;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: white;
+      padding: 20px;
+      z-index: 1001;
+      transition: left 0.3s ease;
+    }
+
+    #sidebar a {
+      display: block;
+      color: white;
+      margin: 10px 0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+    }
+
+    #menu-toggle:checked ~ #overlay {
+      display: block;
+    }
+
+    #menu-toggle:checked + #menu-button + #sidebar {
+      left: 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    form input,
+    form select,
+    form textarea,
+    form button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú funcional -->
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" id="menu-button">&#9776;</label>
+  <nav id="sidebar">
+    <h2>Menú</h2>
+    <a href="index.html">Inicio</a>
+    <a href="registro.html">Registro</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+  <label for="menu-toggle" id="overlay"></label>
+
+  <!-- Cabecera -->
+  <header>
+    <img src="icon-512.png" alt="Creapp logo" />
+    <h1>Creapp</h1>
+    <p>Registro de producción y gastos</p>
+  </header>
+
+  <main>
+    <section>
+      <label for="tipoRegistro">¿Qué quieres registrar?</label>
+      <select id="tipoRegistro">
+        <option value="produccion">Producción</option>
+        <option value="gasto">Gasto</option>
+      </select>
+    </section>
+
+    <section id="formProduccion">
+      <h2>Registrar Producción</h2>
+      <form id="formProd">
+        <label for="campoProd">Campo:</label>
+        <select id="campoProd"></select>
+
+        <input type="text" id="variedad" placeholder="Variedad" required />
+        <input type="number" id="kilos" placeholder="Kilos recolectados" required />
+        <input type="number" id="precio" placeholder="Precio por kg (€)" required />
+        <input type="date" id="fechaProd" required />
+        <textarea id="obsProd" placeholder="Observaciones"></textarea>
+
+        <button type="submit">Guardar Producción</button>
+      </form>
+    </section>
+
+    <section id="formGasto" style="display:none;">
+      <h2>Registrar Gasto</h2>
+      <form id="formGastoForm">
+        <label for="campoGasto">Campo:</label>
+        <select id="campoGasto"></select>
+
+        <input type="text" id="tipoGasto" placeholder="Tipo de gasto" required />
+        <input type="number" id="importeGasto" placeholder="Importe (€)" required />
+        <input type="date" id="fechaGasto" required />
+        <textarea id="obsGasto" placeholder="Notas u observaciones"></textarea>
+
+        <button type="submit">Guardar Gasto</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>
