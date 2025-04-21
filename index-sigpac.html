@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creapp - Mis Campos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Agregar Campo</h1>
+
+  <form id="campoForm">
+    <input type="text" id="nombreCampo" placeholder="Nombre del campo" required />
+
+    <label for="provincia">Provincia:</label>
+    <select id="provincia" required>
+      <option value="">Selecciona provincia</option>
+      <option value="01">Álava</option>
+      <option value="02">Albacete</option>
+      <option value="03">Alicante</option>
+      <option value="04">Almería</option>
+      <option value="05">Ávila</option>
+      <!-- Añadir más provincias aquí -->
+    </select>
+
+    <label for="municipio">Municipio:</label>
+    <input type="number" id="municipio" placeholder="Código municipio" required />
+
+    <input type="text" id="poligono" placeholder="Polígono" required />
+    <input type="text" id="parcela" placeholder="Parcela" required />
+    
+    <button type="submit">Guardar Campo</button>
+    <button type="button" id="verSigpac">Ver en SIGPAC</button>
+  </form>
+
+  <h2>Mis Campos</h2>
+  <ul id="listaCampos"></ul>
+
+  <hr />
+  <a href="registro.html">Ir al Registro de Datos</a><br />
+  <a href="dashboard.html">Ver Dashboard</a>
+
+  <script>
+    document.getElementById("verSigpac").addEventListener("click", () => {
+      const prov = document.getElementById("provincia").value;
+      const muni = document.getElementById("municipio").value;
+      const poli = document.getElementById("poligono").value;
+      const parc = document.getElementById("parcela").value;
+
+      if (prov && muni && poli && parc) {
+        const url = `https://sigpac.mapama.gob.es/fega/visor/?province=${prov}&municipality=${muni}&polygon=${poli}&parcel=${parc}`;
+        window.open(url, '_blank');
+      } else {
+        alert("Completa todos los datos para ver la parcela en SIGPAC.");
+      }
+    });
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
