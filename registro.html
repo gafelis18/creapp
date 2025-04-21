@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creapp - Registro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f4f6;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header img {
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    #menu-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 30px;
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      z-index: 1001;
+      cursor: pointer;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: white;
+      padding: 20px;
+      z-index: 1000;
+      transition: left 0.3s ease-in-out;
+    }
+
+    #sidebar a {
+      color: white;
+      display: block;
+      margin: 15px 0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #menu-toggle:checked + #menu-button + #sidebar {
+      left: 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    form input,
+    form select,
+    form textarea
