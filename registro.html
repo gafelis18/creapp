@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro - Creapp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <input type="checkbox" id="menu-toggle" hidden />
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <nav id="sidebar">
+    <a href="index.html">Inicio</a>
+    <a href="registro.html">Registro</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="resumen.html">Resumen</a>
+  </nav>
+  <label for="menu-toggle" id="overlay"></label>
+
+  <header>
+    <img src="icon-512.png" alt="Logo" />
+    <h1>Registro de Datos</h1>
+  </header>
+
+  <main>
+    <label for="tipoRegistro">Tipo de registro:</label>
+    <select id="tipoRegistro">
+      <option value="produccion">Producción</option>
+      <option value="gasto">Gasto</option>
+    </select>
+
+    <form id="formProduccion">
+      <h2>Producción</h2>
+      <select id="campoProd"></select>
+      <input type="text" id="variedad" placeholder="Variedad" required />
+      <input type="number" id="kilos" placeholder="Kilos" step="0.01" required />
+      <input type="number" id="precio" placeholder="Precio (€)" step="0.01" required />
+      <textarea id="obsProd" placeholder="Observaciones"></textarea>
+      <input type="date" id="fechaProd" required />
+      <button type="submit">Guardar Producción</button>
+    </form>
+
+    <form id="formGasto" style="display: none;">
+      <h2>Gasto</h2>
+      <select id="campoGasto"></select>
+      <input type="text" id="tipoGasto" placeholder="Tipo de gasto" required />
+      <input type="number" id="importeGasto" placeholder="Importe (€)" step="0.01" required />
+      <textarea id="obsGasto" placeholder="Observaciones"></textarea>
+      <input type="date" id="fechaGasto" required />
+      <button type="submit">Guardar Gasto</button>
+    </form>
+  </main>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="registro.js"></script>
+
+</body>
+</html>
