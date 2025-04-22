@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Producción y Gastos - Creapp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <input type="checkbox" id="menu-toggle" hidden />
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <div id="sidebar">
+    <a href="index.html">Inicio</a>
+    <a href="registro.html">Registro</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="resumen.html">Resumen</a>
+  </div>
+  <label for="menu-toggle" id="overlay"></label>
+
+  <header>
+    <img src="icon-512.png" alt="Creapp Logo" />
+    <h1>Creapp</h1>
+    <p>Registro de producción y gastos</p>
+  </header>
+
+  <main>
+    <label for="tipoRegistro">¿Qué quieres registrar?</label>
+    <select id="tipoRegistro">
+      <option value="produccion">Producción</option>
+      <option value="gasto">Gasto</option>
+    </select>
+
+    <form id="produccionForm">
+      <h2>Registrar Producción</h2>
+      <label for="campo">Campo:</label>
+      <select id="campo"></select>
+
+      <input type="text" id="variedad" placeholder="Variedad" required />
+      <input type="number" id="kilos" placeholder="Kilos recolectados" step="0.01" required />
+      <input type="number" id="precio" placeholder="Precio por kg (€)" step="0.01" required />
+      <textarea id="observaciones" placeholder="Observaciones"></textarea>
+
+      <button type="submit">Guardar Producción</button>
+    </form>
+
+    <form id="gastoForm" style="display: none;">
+      <h2>Registrar Gasto</h2>
+      <label for="campo">Campo:</label>
+      <select id="campo"></select>
+
+      <input type="text" id="tipoGasto" placeholder="Tipo de gasto" required />
+      <input type="number" id="importe" placeholder="Importe (€)" step="0.01" required />
+      <textarea id="observacionesGasto" placeholder="Notas u observaciones"></textarea>
+
+      <button type="submit">Guardar Gasto</button>
+    </form>
+  </main>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="registro.js"></script>
+</body>
+</html>
